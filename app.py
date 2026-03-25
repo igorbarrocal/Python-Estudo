@@ -27,20 +27,23 @@ def opcao_invalida():
 
 
 def escolher_opcao():
-    opcao_escolhida = int(input('Escolha uma opção: '))
-    ##print(f'Você escolheu a opção {opcao_escolhida}')
-    # opcao_escolhida = int(opcao_escolhida) ##converte a opção escolhida para inteiro, caso contrário, exibe mensagem de opção inválida
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        ##print(f'Você escolheu a opção {opcao_escolhida}')
+        # opcao_escolhida = int(opcao_escolhida) ##converte a opção escolhida para inteiro, caso contrário, exibe mensagem de opção inválida
 
-    if opcao_escolhida == 1:
-        print('Opção de cadastrar restaurante selecionada')
-    elif opcao_escolhida == 2:
-        print('Opção de listar restaurantes selecionada') ## o elif é usado para verificar cada opção escolhida, caso contrário, exibe mensagem de opção inválida
-    elif opcao_escolhida == 3:
-        print('Opção de ativar restaurante selecionada')  ##if para cada opção escolhida, caso contrário, exibe mensagem de opção inválida    
-    elif opcao_escolhida == 4:
-        finalizar_app()                                                    
-    else:
-        opcao_invalida() ##chama a função de opção inválida, caso o usuário escolha uma opção que não esteja entre as opções disponíveis
+        if opcao_escolhida == 1:
+            print('Opção de cadastrar restaurante selecionada')
+        elif opcao_escolhida == 2:
+            print('Opção de listar restaurantes selecionada') ## o elif é usado para verificar cada opção escolhida, caso contrário, exibe mensagem de opção inválida
+        elif opcao_escolhida == 3:
+            print('Opção de ativar restaurante selecionada')  ##if para cada opção escolhida, caso contrário, exibe mensagem de opção inválida    
+        elif opcao_escolhida == 4:
+            finalizar_app()                                                    
+        else:
+            opcao_invalida() ##chama a função de opção inválida, caso o usuário escolha uma opção que não esteja entre as opções disponíveis
+    except:
+        opcao_invalida() ##chama a função de opção inválida, caso o usuário digite um valor que não seja um número inteiro, como uma letra ou símbolo, o que resultaria em um erro de conversão para inteiro
 
 def main():
     os.system('cls') ##limpa a tela do terminal para exibir o nome do programa e as opções de forma mais clara
