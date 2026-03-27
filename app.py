@@ -1,5 +1,8 @@
 import os
 
+restaurantes=['Pizzaria do Zé', 'Churrascaria do João', 'Hamburgueria do Carlos'] ##lista de restaurantes cadastrados, inicialmente com alguns restaurantes pré-cadastrados para fins de teste
+
+
 def exibir_nome_do_programa():
     print("""
 ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
@@ -25,6 +28,22 @@ def opcao_invalida():
     input('Pressione Enter para continuar...') ##pausa o programa para que o usuário possa ler a mensagem de opção inválida antes de retornar ao menu principal
     main() ##chama a função main para exibir o menu principal novamente após o usuário ler a mensagem de opção inválida
 
+def cadastrar_novo_restaurante():
+    os.system('cls')
+    print('--- Cadastrar Novo Restaurante ---\n')
+    nome_do_restaurante = input('Digite o nome do restaurante: ')
+    restaurantes.append(nome_do_restaurante) ##adiciona o nome do restaurante à lista de restaurantes cadastrados
+    print(f'Restaurante "{nome_do_restaurante}" cadastrado com sucesso!\n')
+    input('Pressione Enter para continuar...') ##pausa o programa para que o usuário possa ler a mensagem de restaurante cadastrado com sucesso antes de retornar ao menu principal
+    main() ##chama a função main para exibir o menu principal novamente após o usuário
+    
+def listar_restaurantes():
+    os.system('cls')
+    print('--- Lista de Restaurantes Cadastrados ---\n')
+    for restaurante in restaurantes: ##percorre a lista de restaurantes cadastrados e exibe cada um deles
+        print(f'- {restaurante}')
+    input('Pressione Enter para continuar...') ##pausa o programa para que o usuário possa ler a mensagem de restaurante cadastrado com sucesso antes de retornar ao menu principal
+    main()
 
 def escolher_opcao():
     try:
@@ -33,9 +52,9 @@ def escolher_opcao():
         # opcao_escolhida = int(opcao_escolhida) ##converte a opção escolhida para inteiro, caso contrário, exibe mensagem de opção inválida
 
         if opcao_escolhida == 1:
-            print('Opção de cadastrar restaurante selecionada')
+            cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
-            print('Opção de listar restaurantes selecionada') ## o elif é usado para verificar cada opção escolhida, caso contrário, exibe mensagem de opção inválida
+            listar_restaurantes() ## o elif é usado para verificar cada opção escolhida, caso contrário, exibe mensagem de opção inválida
         elif opcao_escolhida == 3:
             print('Opção de ativar restaurante selecionada')  ##if para cada opção escolhida, caso contrário, exibe mensagem de opção inválida    
         elif opcao_escolhida == 4:
